@@ -15,7 +15,7 @@ function query(...args) {
     return new Promise((resolve, reject) => {
         connection.query(...args, (err, rows) => {
             if (err) {
-                console.log(err.sql);
+                // console.log(err.sql);
                 resolve(err);
             }
             else resolve(rows);
@@ -42,17 +42,18 @@ let count = 1;
             //if(a === 'error') console.log(`INSERTION FAIL: ${genre.id} ${genre.name}`);
         }
     } catch(e) {
-        console.log(e.code);
+        // console.log(e.code);
     }
     const page = 1;
-    for(let i = 1; i <= page; i++) {
+
+    for(let i = 1; i <= 10; i++) {
         let res = await fetch(api_url + i);
         res = await res.json();
 
         for(movie of res.results) {
             process.stdout.clearLine();
 			process.stdout.cursorTo(0);
-			process.stdout.write("downloading... " + count++ + "/" + 20*page);
+			process.stdout.write("downloading... " + count++ + "/" + 10);
 
             let directorId;
             let creditResult = await fetch(credit_url + movie.id + "/credits?api_key=7198a7592a7c1af6584fd5ff314062ff");
@@ -72,8 +73,18 @@ let count = 1;
                 }
             }
 
-            await query(`INSERT INTO movie(id, title, original_title, description, director_id, poster_path, backdrop_path, runtime, small_backdrop_path) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-                [movie.id, movie.title, movie.original_title, movie.overview, directorId, (poster_url + movie.poster_path), (poster_url + movie.backdrop_path), detailResult.runtime, (poster_url + detailResult.backdrop_path)]);
+            const videos = await fetch(`https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=7198a7592a7c1af6584fd5ff314062ff`);
+            let youtube = 'null';
+            const videoResult = await videos.json();
+
+            for(url of videoResult.results) {
+                if(url.site === 'YouTube') {
+                    youtube = url.key;
+                }
+            }
+            await query(`INSERT INTO movie(id, title, original_title, description, director_id, poster_path, backdrop_path, runtime, small_backdrop_path, vote_count, vote_average, release_date, youtube) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                [movie.id, movie.title, movie.original_title, movie.overview, directorId, (poster_url + movie.poster_path), (poster_url + movie.backdrop_path), detailResult.runtime, (poster_url + detailResult.backdrop_path),
+                detailResult.vote_count, detailResult.vote_average, detailResult.release_date, youtube]);
 
             for(genre of movie.genre_ids) {
                 await query(`INSERT INTO movie_genres(movie_id, genre_id) VALUES(?, ?)`,
@@ -85,7 +96,7 @@ let count = 1;
                     [movie.id, credit.id, credit.character]);
             }
 
-            let r = await fetch(poster_url + movie.poster_path);
+            // let r = await fetch(poster_url + movie.poster_path);
 
             // const dest = fs.createWriteStream(imageDir + movie.poster_path);						
             // r.body.pipe(dest);
