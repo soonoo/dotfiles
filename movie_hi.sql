@@ -26,7 +26,7 @@ CREATE TABLE `actor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2045263 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2049437 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,12 +69,16 @@ CREATE TABLE `movie` (
   `title` varchar(200) NOT NULL,
   `director_id` int(11) NOT NULL,
   `price` int(11) DEFAULT NULL,
-  `original_title` varchar(200) NOT NULL,
+  `original_title` varchar(200) DEFAULT NULL,
   `description` varchar(1000) NOT NULL,
   `poster_path` varchar(150) NOT NULL,
   `runtime` int(11) NOT NULL,
   `backdrop_path` varchar(150) NOT NULL,
   `small_backdrop_path` varchar(150) NOT NULL,
+  `vote_count` int(11) DEFAULT NULL,
+  `vote_average` float DEFAULT NULL,
+  `release_date` date DEFAULT NULL,
+  `youtube` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=510820 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -106,12 +110,48 @@ DROP TABLE IF EXISTS `movie_role`;
 CREATE TABLE `movie_role` (
   `movie_id` int(11) NOT NULL,
   `actor_id` int(11) NOT NULL,
-  `role_name` varchar(200) NOT NULL,
+  `role_name` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`movie_id`,`actor_id`),
   KEY `actor_id` (`actor_id`),
   CONSTRAINT `movie_role_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`),
   CONSTRAINT `movie_role_ibfk_2` FOREIGN KEY (`actor_id`) REFERENCES `actor` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `sessions`
+--
+
+DROP TABLE IF EXISTS `sessions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sessions` (
+  `session_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `expires` int(11) unsigned NOT NULL,
+  `data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  PRIMARY KEY (`session_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `authId` varchar(300) DEFAULT NULL,
+  `email` varchar(200) DEFAULT NULL,
+  `password` varchar(200) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `salt` varchar(500) DEFAULT NULL,
+  `nickname` varchar(50) DEFAULT NULL,
+  `image` varchar(200) DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -123,4 +163,4 @@ CREATE TABLE `movie_role` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-20  8:49:38
+-- Dump completed on 2018-06-01 17:42:01
