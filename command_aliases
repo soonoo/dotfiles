@@ -1,0 +1,4 @@
+alias rr="rm -r"
+alias y="yarn"
+alias cat="ccat"
+
