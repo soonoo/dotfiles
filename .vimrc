@@ -73,6 +73,7 @@ set cursorline
 
 let g:airline#extensions#tabline#enabled = 1
 let g:NERDTreeWinSize=23
+let g:airline#extensions#tabline#buffer_nr_show = 1
 " autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 map gn :bn<cr>
@@ -85,12 +86,6 @@ map g4 :b4<cr>
 map g5 :b5<cr>
 map g6 :b6<cr>
 map g7 :b7<cr>
-map g8 :b8<cr>
-map g9 :b9<cr>
-map g10 :b10<cr>
-map g11 :b11<cr>
-map g12 :b12<cr>
-map g13 :b13<cr>
 
 
 " Don't write backup file if vim is being called by "crontab -e"
