@@ -14,14 +14,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'pangloss/vim-javascript'
@@ -83,6 +78,19 @@ map <C-n> :NERDTreeToggle<CR>
 map gn :bn<cr>
 map gp :bp<cr>
 map gd :bd<cr>
+map g1 :b1<cr>
+map g2 :b2<cr>
+map g3 :b3<cr>
+map g4 :b4<cr>
+map g5 :b5<cr>
+map g6 :b6<cr>
+map g7 :b7<cr>
+map g8 :b8<cr>
+map g9 :b9<cr>
+map g10 :b10<cr>
+map g11 :b11<cr>
+map g12 :b12<cr>
+map g13 :b13<cr>
 
 
 " Don't write backup file if vim is being called by "crontab -e"

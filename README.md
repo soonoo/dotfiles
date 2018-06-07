@@ -1,3 +1,3 @@
-deploy.sh - deploy soonoo.me server  
-sqlbackup.sh - backup local mysql database  
+`$ git clone https://github.com/soonoo/dotfiles`
+`$ ./install.sh`
 
