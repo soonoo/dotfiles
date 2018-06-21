@@ -28,6 +28,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ayu-theme/ayu-vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'docunext/closetag.vim'
+Plugin 'mxw/vim-jsx'
 
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
@@ -66,15 +69,20 @@ set shiftwidth=4
 set number
 set incsearch
 set hlsearch
+set fileencoding=utf-8
+set encoding=utf-8
 colorscheme predawn
 syntax on 
 set cursorline
 
+let NERDTreeShowHidden=1
 let g:airline#extensions#tabline#enabled = 1
 let g:NERDTreeWinSize=23
 let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_powerline_fonts = 1
+
 " autocmd vimenter * NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <expr> <C-n> exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1 ? ':NERDTreeToggle<CR>' : ':NERDTree<CR>'
 map gn :bn<cr>
 map gp :bp<cr>
 map gd :bd<cr>
