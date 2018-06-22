@@ -31,6 +31,7 @@ Plugin 'ayu-theme/ayu-vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'docunext/closetag.vim'
 Plugin 'mxw/vim-jsx'
+Plugin 'vim-syntastic/syntastic'
 
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
@@ -74,12 +75,26 @@ set encoding=utf-8
 colorscheme predawn
 syntax on 
 set cursorline
+set conceallevel=0
 
 let NERDTreeShowHidden=1
 let g:airline#extensions#tabline#enabled = 1
 let g:NERDTreeWinSize=23
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
+
+" syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_eslit_exe = 'yarn run lint'
+let g:syntastic_javascript_checkers = ['eslint']
+" syntastic config end
 
 " autocmd vimenter * NERDTree
 map <expr> <C-n> exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1 ? ':NERDTreeToggle<CR>' : ':NERDTree<CR>'

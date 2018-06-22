@@ -25,3 +25,6 @@ ln -sf --backup $PWD/.zshrc ~/.zshrc
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
+# install tmux
+sudo apt install tmux
+ln -sf --backup $PWD/.tmux.conf ~/.tmux.conf
