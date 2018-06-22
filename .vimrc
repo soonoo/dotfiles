@@ -20,7 +20,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'pangloss/vim-javascript'
-Plugin 'yggdroot/indentline'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'dracula/vim'
 Plugin 'scrooloose/nerdtree'
@@ -28,10 +27,9 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ayu-theme/ayu-vim'
-Plugin 'mattn/emmet-vim'
 Plugin 'docunext/closetag.vim'
 Plugin 'mxw/vim-jsx'
-Plugin 'vim-syntastic/syntastic'
+Plugin 'w0rp/ale'
 
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
@@ -65,8 +63,9 @@ set ruler
 set autoindent
 set smartindent
 set showmatch
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
+set expandtab
 set number
 set incsearch
 set hlsearch
@@ -76,6 +75,7 @@ colorscheme predawn
 syntax on 
 set cursorline
 set conceallevel=0
+let g:indentLine_fileTypeExclude = ['json']
 
 let NERDTreeShowHidden=1
 let g:airline#extensions#tabline#enabled = 1
@@ -83,17 +83,21 @@ let g:NERDTreeWinSize=23
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
 
-" syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+let g:ale_fixers = {
+\  'javascript': ['eslint'],
+\}
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_eslit_exe = 'yarn run lint'
-let g:syntastic_javascript_checkers = ['eslint']
+" syntastic config
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_javascript_eslit_exe = 'yarn run lint'
+" let g:syntastic_javascript_checkers = ['eslint']
 " syntastic config end
 
 " autocmd vimenter * NERDTree
@@ -109,6 +113,9 @@ map g5 :b5<cr>
 map g6 :b6<cr>
 map g7 :b7<cr>
 
+map <C-l> :ALEFix<cr>
+map <Leader>y "+y
+map <Leader>p "+p
 
 " Don't write backup file if vim is being called by "crontab -e"
 au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
