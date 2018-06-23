@@ -4,8 +4,7 @@ ln -sf --backup $PWD/.vimrc ~/.vimrc
 
 # install git and config user
 sudo apt install git
-git config --global user.email "qpseh2m7@gmail.com"
-git config --global user.name "soonoo"
+ln -sf --backup $PWD/.gitconfig ~/.gitconfig
 
 # vim update 
 sudo apt-get update

@@ -30,6 +30,7 @@ Plugin 'ayu-theme/ayu-vim'
 Plugin 'docunext/closetag.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'w0rp/ale'
+Plugin 'ap/vim-css-color'
 
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
