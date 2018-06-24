@@ -4,19 +4,11 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
-" git repos on your local machine (i.e. when working on your own plugin)
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'pangloss/vim-javascript'
@@ -31,12 +23,8 @@ Plugin 'docunext/closetag.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'w0rp/ale'
 Plugin 'ap/vim-css-color'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -48,17 +36,15 @@ filetype plugin indent on    " required
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
-" Configuration file for vim
+" render vim background properly in tmux
+if &term =~ '256color'
+  set t_ut=
+endif
+
 set modelines=0		" CVE-2007-2438
-
-" Normally we use vim-extensions. If you want true vi-compatibility
-" remove change the following statements
 set nocompatible	" Use Vim defaults instead of 100% vi compatibility
 set backspace=2		" more powerful backspacing
-
 set showcmd
 set ruler
 set autoindent
