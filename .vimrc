@@ -24,6 +24,7 @@ Plugin 'mxw/vim-jsx'
 Plugin 'w0rp/ale'
 Plugin 'ap/vim-css-color'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -74,6 +75,7 @@ let g:ale_fixers = {
 \  'javascript': ['eslint'],
 \}
 
+let g:ctrlp_custom_ignore = 'node_modules\/'
 " syntastic config
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}

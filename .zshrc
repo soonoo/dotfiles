@@ -102,7 +102,7 @@ export PATH="/home/soonoo/.yarn/bin:$PATH"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gg="google"
 alias rr="rm -r"
-alias windows="sudo grub-reboot 2 && reboot"
+alias windows="sudo grub-reboot 2 && /sbin/reboot"
 alias cat="ccat"
 alias y="yarn"
 
