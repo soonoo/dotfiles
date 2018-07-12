@@ -25,6 +25,7 @@ Plugin 'w0rp/ale'
 Plugin 'ap/vim-css-color'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-surround'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -62,6 +63,7 @@ set encoding=utf-8
 colorscheme predawn
 syntax on 
 set cursorline
+set relativenumber
 set conceallevel=0
 let g:indentLine_fileTypeExclude = ['json']
 
