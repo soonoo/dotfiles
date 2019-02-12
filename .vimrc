@@ -26,6 +26,10 @@ Plugin 'ap/vim-css-color'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'kshenoy/vim-signature'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'udalov/kotlin-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -65,6 +69,9 @@ syntax on
 set cursorline
 set relativenumber
 set conceallevel=0
+set ignorecase
+set hidden
+set gfn=Meslo\ LG\ M\ for\ Powerline:h14
 let g:indentLine_fileTypeExclude = ['json']
 
 let NERDTreeShowHidden=1
@@ -114,3 +121,9 @@ au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
 au BufWrite /private/etc/pw.* set nowritebackup nobackup
 
 let skip_defaults_vim=1
+
+" remember cursor position wheh reopening file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+Plugin 'wakatime/vim-wakatime'
