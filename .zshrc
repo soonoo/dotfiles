@@ -105,4 +105,13 @@ alias rr="rm -r"
 alias windows="sudo grub-reboot 2 && /sbin/reboot"
 alias cat="ccat"
 alias y="yarn"
+alias nn="node"
+alias ndoe="node"
+alias cl='clear'
+alias mv='mv -i'
+alias cp='cp -i'
+alias p='python3'
+alias vo='vi'
+alias pu='pushstate-server'
+alias puu='pushstate-server .'
 
