@@ -30,6 +30,7 @@ Plugin 'Quramy/tsuquyomi'
 Plugin 'kshenoy/vim-signature'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'udalov/kotlin-vim'
+Plugin 'tpope/vim-commentary'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
