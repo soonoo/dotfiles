@@ -85,6 +85,9 @@ let g:ale_fixers = {
 \  'javascript': ['eslint'],
 \}
 
+" refresh automatically when CtrlP is opened
+" https://stackoverflow.com/questions/8663829/vim-ctrlp-vim-plugin-how-to-rescan-files
+let g:ctrlp_use_caching = 0
 let g:ctrlp_custom_ignore = 'node_modules\/'
 " syntastic config
 " set statusline+=%#warningmsg#
