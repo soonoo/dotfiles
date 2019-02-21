@@ -116,6 +116,9 @@ map g6 :b6<cr>
 map g7 :b7<cr>
 
 map <C-l> :ALEFix<cr>
+
+" copy&paste from/to system clipboard with `,y` and `,p`
+let mapleader=","
 map <Leader>y "+y
 map <Leader>p "+p
 
