@@ -67,6 +67,8 @@ set fileencoding=utf-8
 set encoding=utf-8
 colorscheme predawn
 syntax on 
+set undofile
+set undodir=~/.vim/undo/
 set cursorline
 set relativenumber
 set conceallevel=0
