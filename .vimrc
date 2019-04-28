@@ -67,8 +67,6 @@ set fileencoding=utf-8
 set encoding=utf-8
 colorscheme predawn
 syntax on 
-set undofile
-set undodir=~/.vim/undo/
 set cursorline
 set relativenumber
 set conceallevel=0
@@ -76,6 +74,16 @@ set ignorecase
 set hidden
 set gfn=Meslo\ LG\ M\ for\ Powerline:h14
 let g:indentLine_fileTypeExclude = ['json']
+
+" save undo/redo history
+if !isdirectory($HOME."/.vim")
+    call mkdir($HOME."/.vim", "", 0770)
+endif
+if !isdirectory($HOME."/.vim/undo")
+    call mkdir($HOME."/.vim/undo", "", 0700)
+endif
+set undofile
+set undodir=~/.vim/undo/
 
 let NERDTreeShowHidden=1
 let g:airline#extensions#tabline#enabled = 1
