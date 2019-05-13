@@ -98,7 +98,9 @@ let g:ale_fixers = {
 " refresh automatically when CtrlP is opened
 " https://stackoverflow.com/questions/8663829/vim-ctrlp-vim-plugin-how-to-rescan-files
 let g:ctrlp_use_caching = 0
-let g:ctrlp_custom_ignore = 'node_modules\/'
+
+" https://github.com/kien/ctrlp.vim/issues/58
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|repos|dist)|(\.(swp|ico|git|svn))$'
 " syntastic config
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
