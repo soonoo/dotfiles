@@ -129,6 +129,22 @@ map g7 :b7<cr>
 
 map <C-l> :ALEFix<cr>
 
+if has('cscope')
+  set cscopetag cscopeverbose
+
+  if has('quickfix')
+    set cscopequickfix=s-,c-,d-,i-,t-,e-
+  endif
+
+  cnoreabbrev csa cs add
+  cnoreabbrev csf cs find
+  cnoreabbrev csk cs kill
+  cnoreabbrev csr cs reset
+  cnoreabbrev css cs show
+  cnoreabbrev csh cs help
+
+  command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
+endif
 " copy&paste from/to system clipboard with `,y` and `,p`
 let mapleader=","
 map <Leader>y "+y
