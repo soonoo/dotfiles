@@ -74,6 +74,7 @@ set ignorecase
 set hidden
 set gfn=Meslo\ LG\ M\ for\ Powerline:h14
 let g:indentLine_fileTypeExclude = ['json']
+set updatetime=100
 
 " save undo/redo history
 if !isdirectory($HOME."/.vim")
