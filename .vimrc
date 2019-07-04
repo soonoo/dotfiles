@@ -31,6 +31,7 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'udalov/kotlin-vim'
 Plugin 'tpope/vim-commentary'
+Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -129,6 +130,11 @@ map g6 :b6<cr>
 map g7 :b7<cr>
 
 map <C-l> :ALEFix<cr>
+
+" vim-multiple-cursor key bindings
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_start_word_key='<C-i>'
+let g:multi_cursor_next_key='<C-i>'
 
 if has('cscope')
   set cscopetag cscopeverbose
