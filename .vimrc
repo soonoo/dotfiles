@@ -67,7 +67,7 @@ set hlsearch
 set fileencoding=utf-8
 set encoding=utf-8
 colorscheme predawn
-syntax on 
+syntax on
 set cursorline
 set relativenumber
 set conceallevel=0
@@ -92,6 +92,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:NERDTreeWinSize=23
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
+let g:airline_theme='deus'
 
 let g:ale_fixers = {
 \  'javascript': ['eslint'],
@@ -136,22 +137,22 @@ let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_start_word_key='<C-i>'
 let g:multi_cursor_next_key='<C-i>'
 
-if has('cscope')
-  set cscopetag cscopeverbose
+" if has('cscope')
+"   set cscopetag cscopeverbose
 
-  if has('quickfix')
-    set cscopequickfix=s-,c-,d-,i-,t-,e-
-  endif
+"   if has('quickfix')
+"     set cscopequickfix=s-,c-,d-,i-,t-,e-
+"   endif
 
-  cnoreabbrev csa cs add
-  cnoreabbrev csf cs find
-  cnoreabbrev csk cs kill
-  cnoreabbrev csr cs reset
-  cnoreabbrev css cs show
-  cnoreabbrev csh cs help
+"   cnoreabbrev csa cs add
+"   cnoreabbrev csf cs find
+"   cnoreabbrev csk cs kill
+"   cnoreabbrev csr cs reset
+"   cnoreabbrev css cs show
+"   cnoreabbrev csh cs help
 
-  command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
-endif
+"   command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
+" endif
 " copy&paste from/to system clipboard with `,y` and `,p`
 let mapleader=","
 map <Leader>y "+y
