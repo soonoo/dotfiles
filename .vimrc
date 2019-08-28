@@ -32,6 +32,8 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'udalov/kotlin-vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'prettier/vim-prettier'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
