@@ -1,0 +1,17 @@
+battop
+brave-bin
+compton-conf
+dpkg
+gitextensions
+gitkraken
+google-cloud-sdk
+gpaint
+intel-undervolt
+notion-app
+polybar
+thinkfan
+tomboy
+touchegg
+ttf-nanum
+yad
+yay
