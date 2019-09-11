@@ -7,8 +7,11 @@ gitkraken
 google-cloud-sdk
 gpaint
 intel-undervolt
+kazam
+key-mon
 notion-app
 polybar
+screenkey
 thinkfan
 tomboy
 touchegg

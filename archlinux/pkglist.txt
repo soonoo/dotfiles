@@ -1,8 +1,10 @@
+ack
 acpi
 acpi_call
 alsa-utils
 arandr
 arch-wiki-docs
+ardour
 atop
 autoconf
 autojump
@@ -55,6 +57,7 @@ fio
 firefox
 flex
 freerdp
+fzf
 gawk
 gcc
 gcc-libs
@@ -68,6 +71,7 @@ gnome-calculator
 gnome-screenshot
 gnome-system-monitor
 gnome-terminal
+gpick
 graphicsmagick
 grep
 groff
@@ -96,6 +100,8 @@ iputils
 jdk8-openjdk
 jfsutils
 kamoso
+kde-cli-tools
+kdeconnect
 konsole
 less
 lib32-freetype2
@@ -104,12 +110,14 @@ lib32-mesa
 libnetfilter_queue
 libreoffice-still
 libtool
+libxklavier
 licenses
 light
 linux
 linux-firmware
 logrotate
 lshw
+lsof
 lvm2
 m4
 make
@@ -154,6 +162,7 @@ psmisc
 pulseaudio-alsa
 pulseaudio-bluetooth
 python-pip
+python-xlib
 qutebrowser
 r
 ranger
@@ -171,6 +180,7 @@ screenfetch
 sed
 shadow
 shotcut
+simplescreenrecorder
 smartmontools
 strace
 stress
@@ -201,6 +211,7 @@ ttf-font-awesome
 ttf-hack
 unoconv
 unzip
+uptimed
 usbutils
 util-linux
 vi
