@@ -35,6 +35,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'prettier/vim-prettier'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ollykel/v-vim'
+Plugin 'vim/killersheep'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -80,6 +81,16 @@ set gfn=Meslo\ LG\ M\ for\ Powerline:h14
 let g:indentLine_fileTypeExclude = ['json']
 set updatetime=100
 set shortmess-=S
+
+" hide '-- INSERT --' text in status line when entering insert mode
+set noshowmode
+
+" display YouCompleteMe preview pane in bottom
+" https://github.com/ycm-core/YouCompleteMe/issues/1765
+set splitbelow
+
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " save undo/redo history
 if !isdirectory($HOME."/.vim")
