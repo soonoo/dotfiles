@@ -36,6 +36,7 @@ Plugin 'prettier/vim-prettier'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ollykel/v-vim'
 Plugin 'vim/killersheep'
+Plugin 'fatih/vim-go'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -62,9 +63,13 @@ set ruler
 set autoindent
 set smartindent
 set showmatch
+
+" http://vimcasts.org/episodes/tabs-and-spaces/
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set expandtab
+
 set number
 set incsearch
 set hlsearch
@@ -81,6 +86,9 @@ set gfn=Meslo\ LG\ M\ for\ Powerline:h14
 let g:indentLine_fileTypeExclude = ['json']
 set updatetime=100
 set shortmess-=S
+
+" auto-import for golang
+let g:go_fmt_command = "goimports"
 
 " hide '-- INSERT --' text in status line when entering insert mode
 set noshowmode
