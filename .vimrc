@@ -2,8 +2,9 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+
+call vundle#begin('~/.config/nvim/bundle')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -37,6 +38,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'ollykel/v-vim'
 Plugin 'vim/killersheep'
 Plugin 'fatih/vim-go'
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -51,9 +53,9 @@ filetype plugin indent on    " required
 "
 
 " render vim background properly in tmux
-if &term =~ '256color'
-  set t_ut=
-endif
+"if &term =~ '256color'
+ " set t_ut=
+"endif
 
 set modelines=0		" CVE-2007-2438
 set nocompatible	" Use Vim defaults instead of 100% vi compatibility
@@ -112,7 +114,7 @@ set undodir=~/.vim/undo/
 
 let NERDTreeShowHidden=1
 let g:airline#extensions#tabline#enabled = 1
-let g:NERDTreeWinSize=23
+let g:NERDTreeWinSize=36
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='deus'
@@ -181,15 +183,24 @@ let mapleader=","
 map <Leader>y "+y
 map <Leader>p "+p
 
-" Don't write backup file if vim is being called by "crontab -e"
+set swapfile
+set dir=~/vim-tmp
+
+" Don't write backup file if vim is being called by crontab -e
 au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
-" Don't write backup file if vim is being called by "chpass"
+" Don't write backup file if vim is being called by chpass
 au BufWrite /private/etc/pw.* set nowritebackup nobackup
 
 let skip_defaults_vim=1
 
+hi CursorLineNr    term=bold cterm=bold gui=bold
+
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size=2
+hi IndentGuidesOdd  guibg=lightgray ctermbg=3
+hi IndentGuidesEven guibg=green ctermbg=4
+
 " remember cursor position wheh reopening file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-Plugin 'wakatime/vim-wakatime'
+"if has("autocmd")
+"  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+"endif
